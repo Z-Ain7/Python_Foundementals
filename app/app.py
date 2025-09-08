@@ -1,7 +1,9 @@
 from flask import Flask,request,jsonify
+import random
 
 app = Flask(__name__)
 
+#get_ip
 @app.route('/my-ip',methods=['GET'])
 def myip():
     ip_add=request.remote_addr
