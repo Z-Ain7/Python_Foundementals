@@ -10,5 +10,23 @@ def myip():
     return ip_add
     #return jsonify({"ip":ip_add})
 
+#qoute
+@app.route('/qoute',methods=['GET'])
+def qoute():
+    qoutes=[
+    "It is never too late to be what you might have been.","Do one thing every day that scares you.",
+    "Nothing is impossible. The word itself says ‘I’m possible!’",
+    "Keep your face always toward the sunshine—and shadows will fall behind you.",
+    "Success is falling nine times and getting up ten.",
+    "You miss 100% of the shots you don’t take.",
+    "A problem is a chance for you to do your best.",
+    "Dreams do not come true just because you dream them. It’s hard work that makes things happen.",
+    "If you change the way you look at things, the things you look at change.",
+     "Life has got those twists and turns. You’ve got to hold on tight and off you go.",
+        
+    ]
+    #return random.choice(qesout)
+    return jsonify(random.choice(qoutes))
+
 if __name__ == '__main__':
     app.run(debug=True)
