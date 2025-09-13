@@ -1,5 +1,6 @@
 from flask import Flask,request,jsonify
 import random
+import requests
 
 app = Flask(__name__)
 
@@ -25,8 +26,9 @@ def qoute():
      "Life has got those twists and turns. You’ve got to hold on tight and off you go.",
         
     ]
-    #return random.choice(qesout)
+    #return random.choice(qoutes)
     return jsonify(random.choice(qoutes))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
