@@ -49,7 +49,7 @@ def weather():
     body_data = request.get_json()
     print("DEBUG body_data:", body_data)
     city = body_data.get('city')
-    url = f'{base_url}?appid={weater_api_key}&q={city}'
+    url = f'{base_url}?appid={weater_api_key}&q={city}&units=metric'
     if not city:
         return jsonify({"error": "Please enter a city name."}), 400
     response = requests.get(url)
@@ -62,6 +62,8 @@ def weather():
             "temperature": data.get('main', {}).get('temp'),
             "humidity": data.get('main', {}).get('humidity')
         }
+        logger.info(f'Weather API run at {time.time()}:')
+        logger.error("Error!")
         return jsonify(weather_info)
 
 
