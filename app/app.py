@@ -14,6 +14,8 @@ logger.add("app.log",rotation="2 MB",retention="7 days",level="INFO")
 @app.route('/my-ip', methods=['GET'])
 def myip():
     ip_add = request.remote_addr
+    logger.info(f'IP API run at {time.time()}:')
+    logger.error("Error!")
     #return ip_add
     return jsonify({"ip":ip_add})
 
@@ -34,6 +36,7 @@ def qoute():
 
     ]
     logger.info(f'Qoute API run at {time.time()}:')
+    logger.error("Error!")
     #return random.choice(qoutes)
     return jsonify(random.choice(qoutes))
 
