@@ -2,10 +2,13 @@ from flask import Flask, request, jsonify
 from loguru import logger
 import random
 import requests
+import time
 import config
 
 app = Flask(__name__)
 
+#logger
+logger.add("app.log",rotation="2 MB",retention="7 days",level="INFO")
 
 # get_ip
 @app.route('/my-ip', methods=['GET'])
@@ -30,6 +33,7 @@ def qoute():
         "Life has got those twists and turns. You’ve got to hold on tight and off you go.",
 
     ]
+    logger.info(f'Qoute API run at {time.time()}:')
     #return random.choice(qoutes)
     return jsonify(random.choice(qoutes))
 
