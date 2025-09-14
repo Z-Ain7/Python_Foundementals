@@ -14,7 +14,7 @@ logger.add("app.log",rotation="2 MB",retention="7 days",level="INFO")
 @app.route('/my-ip', methods=['GET'])
 def myip():
     ip_add = request.remote_addr
-    logger.info(f'IP API run at {time.time()}:')
+    logger.info(f'IP API run')
     logger.error("Error!")
     #return ip_add
     return jsonify({"ip":ip_add})
@@ -35,7 +35,7 @@ def qoute():
         "Life has got those twists and turns. You’ve got to hold on tight and off you go.",
 
     ]
-    logger.info(f'Qoute API run at {time.time()}:')
+    logger.info(f'Qoute API run')
     logger.error("Error!")
     #return random.choice(qoutes)
     return jsonify(random.choice(qoutes))
@@ -62,7 +62,7 @@ def weather():
             "temperature": data.get('main', {}).get('temp'),
             "humidity": data.get('main', {}).get('humidity')
         }
-        logger.info(f'Weather API run at {time.time()}:')
+        logger.info(f'Weather API run')
         logger.error("Error!")
         return jsonify(weather_info)
 
